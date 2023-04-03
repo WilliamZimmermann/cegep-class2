@@ -1,0 +1,108 @@
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <title>Contact - Ma page avec Bootstrap</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        #map {
+            height: 350px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            const uluru = { lat: 46.7935879, lng: -71.2627805 };
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: uluru,
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+            });
+        }
+
+        window.initMap = initMap;
+
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Ma page</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container mt-3">
+        <h1>Contact</h1>
+        <p>Cette page est créée avec Bootstrap.</p>
+        <div class="row">
+            <div class="col-8">
+                <div class="col-12 mb-4">
+                    <label for="name" class="form-label">Nom *</label>
+                    <input type="text" class="form-control" id="name" placeholder="Steve Jobs" required>
+                </div>
+                <div class="col-12 mb-4">
+                    <label for="email" class="form-label">E-mail *</label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                </div>
+                <div class="col-12 mb-4">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="phone" class="form-control" id="phone" placeholder="418 999 9999">
+                </div>
+                <div class="col-12 mb-4">
+                    <label for="exampleFormControlTextarea1" class="form-label">Message *</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                </div>
+                <div class="col-12 mb-4">
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <div id="map"></div>
+                </div>
+                <div class="row">
+                    <strong>Cégep Garneau</strong>
+                    <address>Bd de l'Entente, Québec City,<br />Quebec G1S 4S3</address>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- To obtain your Google API you can go to this website here https://developers.google.com/maps -> Get Started -> Credentials -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=<YOUR_GOOGLE_API_HERE>>&callback=initMap&v=weekly"
+        defer></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+
+</html>
